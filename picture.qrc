@@ -1,0 +1,7 @@
+<RCC>
+   <qresource prefix = "picture">
+        <file>img/110.png</file>
+        <file>110.ico</file>
+        <file>img/connect_demo.png</file>
+   </qresource>
+</RCC>
