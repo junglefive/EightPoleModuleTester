@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['CSM37F58_APP.py'],
-             pathex=['C:\\Python\\Python35-32\\Lib\\site-packages\\pyttsx3\\drivers', 'F:\\Workspace\\GitHub\\8电极模组测试程序'],
+             pathex=['C:\\Python\\Python35-32\\Lib\\site-packages\\PyQt5\\Qt\\bin', 'F:\\Workspace\\GitHub\\EightPoleModuleTester'],
              binaries=[],
              datas=[],
              hiddenimports=[],
@@ -26,4 +26,4 @@ exe = EXE(pyz,
           strip=False,
           upx=True,
           runtime_tmpdir=None,
-          console=True , icon='110.ico')
+          console=False , icon='110.ico')

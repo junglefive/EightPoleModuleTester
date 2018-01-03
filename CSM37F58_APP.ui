@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>675</width>
-    <height>1188</height>
+    <width>660</width>
+    <height>879</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -111,7 +111,7 @@
        </palette>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -654,16 +654,6 @@
         <item row="4" column="1">
          <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="0,0,0,0,0">
           <item>
-           <widget class="QLineEdit" name="lineEdit">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="text">
-             <string>体重(kg)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QLineEdit" name="lineEdit_2">
             <property name="enabled">
              <bool>false</bool>
@@ -680,6 +670,16 @@
             </property>
             <property name="text">
              <string>年龄(岁)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>体重(kg)</string>
             </property>
            </widget>
           </item>
@@ -1447,7 +1447,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>675</width>
+     <width>660</width>
      <height>23</height>
     </rect>
    </property>

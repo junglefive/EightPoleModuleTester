@@ -355,7 +355,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             cmd_bytes = bytes.fromhex(cmd_hex)
             print(hex_str)
             protocol = CH341AIIC()
-            protocol.set_clk(protocol.IIC_CLK_750kHz)
             print(hex(cmd_bytes[1]),hex(cmd_bytes[2]))
             address_read = (cmd_bytes[1]*256+cmd_bytes[2])
             print("read：", hex(address_read))
