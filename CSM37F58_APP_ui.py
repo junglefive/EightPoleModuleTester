@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'CSM37F58_APP.ui'
 #
-# Created by: PyQt5 UI code generator 5.9
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -267,6 +267,7 @@ class Ui_MainWindow(object):
         self.line_cmd_1 = QtWidgets.QLineEdit(self.tab)
         self.line_cmd_1.setEnabled(False)
         self.line_cmd_1.setAccessibleDescription("")
+        self.line_cmd_1.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.line_cmd_1.setObjectName("line_cmd_1")
         self.horizontalLayout_9.addWidget(self.line_cmd_1)
         self.btn_cmd_1 = QtWidgets.QPushButton(self.tab)
@@ -615,6 +616,72 @@ class Ui_MainWindow(object):
         self.checkBox_16.raise_()
         self.label_19.raise_()
         self.tabWidget.addTab(self.tab, "")
+        self.tab_12 = QtWidgets.QWidget()
+        self.tab_12.setObjectName("tab_12")
+        self.gridLayout = QtWidgets.QGridLayout(self.tab_12)
+        self.gridLayout.setObjectName("gridLayout")
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_23.setObjectName("horizontalLayout_23")
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.lineEdit_8 = QtWidgets.QLineEdit(self.tab_12)
+        self.lineEdit_8.setEnabled(False)
+        self.lineEdit_8.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lineEdit_8.setObjectName("lineEdit_8")
+        self.horizontalLayout_24.addWidget(self.lineEdit_8)
+        self.line_timer_read_addr = QtWidgets.QLineEdit(self.tab_12)
+        self.line_timer_read_addr.setObjectName("line_timer_read_addr")
+        self.horizontalLayout_24.addWidget(self.line_timer_read_addr)
+        self.horizontalLayout_24.setStretch(0, 2)
+        self.horizontalLayout_24.setStretch(1, 1)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_24)
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.lineEdit_9 = QtWidgets.QLineEdit(self.tab_12)
+        self.lineEdit_9.setEnabled(False)
+        self.lineEdit_9.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.lineEdit_9.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lineEdit_9.setObjectName("lineEdit_9")
+        self.horizontalLayout_25.addWidget(self.lineEdit_9)
+        self.line_timer_read_byte_len = QtWidgets.QLineEdit(self.tab_12)
+        self.line_timer_read_byte_len.setObjectName("line_timer_read_byte_len")
+        self.horizontalLayout_25.addWidget(self.line_timer_read_byte_len)
+        self.horizontalLayout_25.setStretch(0, 2)
+        self.horizontalLayout_25.setStretch(1, 1)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_25)
+        self.horizontalLayout_26 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_26.setObjectName("horizontalLayout_26")
+        self.lineEdit_6 = QtWidgets.QLineEdit(self.tab_12)
+        self.lineEdit_6.setEnabled(False)
+        self.lineEdit_6.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lineEdit_6.setObjectName("lineEdit_6")
+        self.horizontalLayout_26.addWidget(self.lineEdit_6)
+        self.line_read_time = QtWidgets.QLineEdit(self.tab_12)
+        self.line_read_time.setObjectName("line_read_time")
+        self.horizontalLayout_26.addWidget(self.line_read_time)
+        self.horizontalLayout_26.setStretch(0, 2)
+        self.horizontalLayout_26.setStretch(1, 1)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_26)
+        self.horizontalLayout_23.addLayout(self.verticalLayout_11)
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.comboBox_read_timer = QtWidgets.QComboBox(self.tab_12)
+        self.comboBox_read_timer.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.comboBox_read_timer.setObjectName("comboBox_read_timer")
+        self.verticalLayout_12.addWidget(self.comboBox_read_timer)
+        self.btn_read_timer = QtWidgets.QPushButton(self.tab_12)
+        self.btn_read_timer.setObjectName("btn_read_timer")
+        self.verticalLayout_12.addWidget(self.btn_read_timer)
+        self.horizontalLayout_23.addLayout(self.verticalLayout_12)
+        self.horizontalLayout_23.setStretch(0, 2)
+        self.horizontalLayout_23.setStretch(1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout_23, 0, 0, 1, 1)
+        self.plainTextEdit_read_timer = QtWidgets.QPlainTextEdit(self.tab_12)
+        self.plainTextEdit_read_timer.setObjectName("plainTextEdit_read_timer")
+        self.gridLayout.addWidget(self.plainTextEdit_read_timer, 1, 0, 1, 1)
+        self.tabWidget.addTab(self.tab_12, "")
         self.tab_13 = QtWidgets.QWidget()
         self.tab_13.setObjectName("tab_13")
         self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.tab_13)
@@ -673,7 +740,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(4)
         self.tabWidget_2.setCurrentIndex(3)
         self.tabWidget_3.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -767,6 +834,14 @@ class Ui_MainWindow(object):
         self.btn_cmd_reset.setToolTip(_translate("MainWindow", "显示读取到的内容"))
         self.btn_cmd_reset.setText(_translate("MainWindow", "复位"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "命令区（功能）"))
+        self.lineEdit_8.setText(_translate("MainWindow", "读取地址((Base + Offset) Addr)："))
+        self.line_timer_read_addr.setText(_translate("MainWindow", "0x11AC"))
+        self.lineEdit_9.setText(_translate("MainWindow", "连续读取字节数（Bytes）："))
+        self.line_timer_read_byte_len.setText(_translate("MainWindow", "1"))
+        self.lineEdit_6.setText(_translate("MainWindow", "定时间隔时间（ms）："))
+        self.line_read_time.setText(_translate("MainWindow", "1000"))
+        self.btn_read_timer.setText(_translate("MainWindow", "开始"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_12), _translate("MainWindow", "定时任务"))
         self.btn_iap_loadfile.setText(_translate("MainWindow", "选择文件"))
         self.btn_iap_erase.setToolTip(_translate("MainWindow", "[0xA0, 0x00, 0x00, 0xAA, 0x55, 0xA5, 0x5A]"))
         self.btn_iap_erase.setText(_translate("MainWindow", "擦除Flash"))
@@ -791,6 +866,9 @@ class Ui_MainWindow(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline; color:#0000ff;\"><br /></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-decoration: underline; color:#0000ff;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Consolas\'; font-size:16pt; font-weight:600;\">版本说明</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Consolas\'; font-size:16pt; font-weight:600;\">   </span><span style=\" font-family:\'Consolas\'; font-size:16pt; font-weight:600; font-style:italic;\">V0.4</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Consolas\'; font-size:12pt;\">     1. 增加了定时查询制定地址</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Consolas\'; font-size:12pt;\">     2. 保存对应的十进制数据到.csv文件</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Consolas\'; font-size:16pt; font-weight:600;\">   </span><span style=\" font-family:\'Consolas\'; font-size:16pt; font-weight:600; font-style:italic;\">V0.3</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Consolas\'; font-size:12pt;\">     1. 增加了IAP功能.</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Consolas\'; font-size:12pt;\">     2. 查询当前版本.</span></p>\n"

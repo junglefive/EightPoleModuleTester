@@ -7,6 +7,7 @@ from serial.tools.list_ports import *
 from picture_qrc import  *
 import datetime
 from IIC_CH341 import *
+from PyQt5.QtCore import  QTimer
 import numpy as np
 
 
@@ -27,6 +28,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         # #初始化显示大小
         self.init_default_display()
         self.init_watch_table_all()
+        self.init_read_timer()
+
         ##
         # #初始化信号槽
         self.btn_update_all.clicked.connect(self.update_watch_table_display)
@@ -56,6 +59,76 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.line_body_years_old.textChanged.connect(self.on_changed_line_body_data)
         self.line_body_gender.textChanged.connect(self.on_changed_line_body_data)
         self.line_body_mode.textChanged.connect(self.on_changed_line_body_data)
+
+        self.btn_read_timer.clicked.connect(self.on_clicked_btn_read_timer)
+        #
+        self.read_timer = QTimer()
+        self.read_timer.timeout.connect(self.read_timer_event)
+        # self.read_timer.start(int(self.line_read_time.text()))
+
+    def on_clicked_btn_read_timer(self):
+        print("click read_timer")
+        if(self.btn_read_timer.text()=="结束"):
+            self.btn_read_timer.setText("开始")
+            self.timer_event_enable = False
+            # print("stop")
+            self.read_timer.stop()
+        else:
+            #print("start")
+            self.btn_read_timer.setText("结束")
+            self.timer_event_enable = True
+            # self.read_timer.timeout.connect(self.read_timer_event)
+            self.read_timer.start(int(self.line_read_time.text()))
+
+    def read_timer_event(self):
+        print("timer_event:",datetime.datetime.now().strftime('%Y-%m-%d:%H:%M:%S'))
+        if  self.timer_event_enable == True:
+            self.i2c_read_bytes()
+
+    def read_save_file(self,s):
+        with open("./record.csv","a+") as f:
+            f.write(s)
+
+    def i2c_read_bytes(self):
+        try:
+            protocol = CH341AIIC()
+            save_mode ='big'
+            if self.comboBox_read_timer.currentText() == "小端模式":
+                save_mode = 'little'
+
+            address_read = int(self.line_timer_read_addr.text(),16)
+            length = int(self.line_timer_read_byte_len.text())
+            print("read：", hex(address_read))
+            result = False
+            read = bytearray()
+            if length == 1:
+                result, read = protocol.read_byte(address_read)
+            else:
+                result,read = protocol.read_bytes(address_read,length)
+            # print("type:",type(read)) #bytes
+
+            print(str(result),read.hex())
+
+            if result:
+                # QMessageBox.information(self, "提示", "读取成功")
+                value = int.from_bytes(read,byteorder= save_mode)
+                self.plainTextEdit_read_timer.appendPlainText("[" + datetime.datetime.now().strftime('%H:%M:%S') + "]: 0x" + read.hex()+","+str(value))
+                self.read_save_file(str(value)+'\n')
+                print(str(value))
+            else:
+                QMessageBox.information(self, "错误", "读取失败,请检查硬件")
+
+        except Exception as e:
+            print(str(e))
+            self.timer_event_enable =False
+            QMessageBox.information(self, "错误", "读取失败,请检查硬件" + str(e))
+
+    def init_read_timer(self):
+        self.line_timer_read_addr.setText("0x11AC")
+        self.line_timer_read_byte_len.setText("1")
+        self.comboBox_read_timer.addItems(["大端模式","小端模式"])
+        f = open("./record.csv", "a+")
+        f.close()
 
     def on_clicked_btn_iap_read_flash(self):
         try:
@@ -379,7 +452,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             cmd_bytes = bytes.fromhex(cmd_hex)
 
             protocol = CH341AIIC()
-            protocol.set_clk(protocol.IIC_CLK_750kHz)
+            protocol.set_clk(protocol.IIC_CLK_100kHz)
             result = protocol.write_bytes(cmd_bytes)
             print(str(cmd_bytes.hex()))
             if dis_success&result:
@@ -439,7 +512,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         try:
             protocol = CH341AIIC()
-            protocol.set_clk(protocol.IIC_CLK_750kHz)
+            protocol.set_clk(protocol.IIC_CLK_100kHz)
             # print("逐个读地址：", hex(address_read))
             self.progress_bar.setWindowTitle("更新RAM中....")
             self.progress_bar_current = 0
